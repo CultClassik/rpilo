@@ -1,15 +1,21 @@
 sudo: required
+
+language: python
+
 services:
 - docker
-language: python
-script:
+
+before_install:
 # prepare qemu
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
 - docker build -t cultclassik/rpilo .
 # test image
-- docker run cultclassik/rpilo
+- docker run --name=rpilo cultclassik/rpilo
 # push image
+
+script:
+- docker exec rpilo python -m unittest discover
 
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
@@ -20,4 +26,4 @@ script:
     docker push cultclassik/rpilo
   fi
 
-# TAG=$(grep "ENV MYSQL_VERSION" Dockerfile | awk 'NF>1{print $NF}')
+# TAG=$(grep "ENV TAG_NAME" Dockerfile | awk 'NF>1{print $NF}')
