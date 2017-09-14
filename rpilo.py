@@ -8,6 +8,7 @@ app = Flask(__name__)
 # Internal Functions
 ############
 def get_conf(file_name):
+    i = "test"
     return "blah"
 
 
