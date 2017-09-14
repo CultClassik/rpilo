@@ -16,11 +16,11 @@ RUN apk update && apk add \
     git \
     python-dev
 
-RUN git clone https://github.com/CultClassik/py-raspi-powerctl.git /py-raspi-powerctl
+RUN git clone https://github.com/CultClassik/rpilo.git /rpilo
 
 EXPOSE 5000
 
-WORKDIR /py-raspi-powerctl
+WORKDIR /rpilo
 
 CMD ["/usr/bin/python rpilo.py"]
 
