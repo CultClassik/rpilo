@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Raspberry Pi System Stats
+    </div>
+    <div class="panel-body">
+    {% for key, value in stats.items() %}
+       <div class="col-sm-4"><b>{{ key }}:</b> {{ value }}</div>
+    {% endfor %}
+      {# <div class="col-sm-4"><b>Temp:</b> {{ stats['temp'] }}</div>
+        <div class="col-sm-4"><b>CPU:</b> {{ stats['cpu'] }}</div>
+        <div class="col-sm-4"><b>Memory:</b>
+
+        </div>
+        #}
+    </div>
+</div>

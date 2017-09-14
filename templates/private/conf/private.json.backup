@@ -1,0 +1,50 @@
+{
+  "devices":
+  [
+    {
+      "name": "miner01",
+      "owner": "miner",
+      "host": "miner01.diehlabs.lan",
+      "gpio": 37,
+      "gpio-status": 22
+    },
+    {
+      "name": "miner02",
+      "owner": "miner",
+      "host": "miner02.diehlabs.lan",
+      "gpio": 35,
+      "gpio-status": 18
+        },
+    {
+      "name": "miner03",
+      "owner": "miner",
+      "host": "miner03.diehlabs.lan",
+      "gpio": 35,
+      "gpio-status": 16
+        },
+    {
+      "name": "miner04",
+      "owner": "miner",
+      "host": "miner04.diehlabs.lan",
+      "gpio": 35,
+      "gpio-status": 12
+        },
+    {
+      "name": "miner05",
+      "owner": "miner",
+      "host": "miner05.diehlabs.lan",
+      "gpio": 35,
+      "gpio-status": 7
+    }
+  ],
+  "services":
+  [
+    {
+      "name": "My Service",
+      "user": "serviceuser",
+      "host": "anonymous-desktop.local",
+      "command": "service_name",
+      "options": [ "start", "stop", "status" ]
+    }
+  ]
+}

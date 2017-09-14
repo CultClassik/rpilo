@@ -1,0 +1,45 @@
+{% extends "includes/base.html" %}
+
+{% block content %}
+    <div class="row">
+    {% for label, device in devices.items() recursive %}
+        <div class="col-md-6">
+            <div class="jumbotron cell">
+                <h2>{{ label }}</h2>
+                <a href="http://{{ device.host }}:9090" target="_blank">{{ device.host }}</a>
+                <p>{# <b>Current Status:  #}
+                    <span id="{{ device.name }}-spinner" hidden><i class="fa fa-refresh fa-spin" style="font-size:24px" aria-hidden="true"></i></span>
+                    {# PC ping status #}
+                    <span id="{{ device.name }}-ping" data-device="{{ device.name }}">
+                        {% if device.pingable %}
+                            <span class="label label-success"><i class="fa fa-power-off"></i> Pingable</span>
+                        {% else %}
+                            <span class="label label-danger"><i class="fa fa-exclamation-triangle"></i> Non-pingable</span>
+                        {% endif %}
+                    </span>
+                    {# PC power LED status #}
+                    <span id="{{ device.name }}-status" data-device="{{ device.name }}">
+                        {% if device.is_online %}
+                            <span class="label label-success"><i class="fa fa-power-off"></i> Online</span>
+                        {% else %}
+                            <span class="label label-danger"><i class="fa fa-exclamation-triangle"></i> Offline</span>
+                        {% endif %}
+                    </span>
+                </p>
+                <div class="btn-toolbar">
+                {#  need to add a check for device owner here as well to duplicate function of original php code  but this shoud work for me for now #}
+                    {% if device.is_online and device.gpio %}
+                        <a class="btn btn-primary" id="{{ device.name }}-sleep" href="{{ url_for('power', device = device.name) }}" data-device="{{ device.name }}">
+                        <i class="fa fa-pause-circle"></i> Sleep</a>
+                        <a class="btn btn-danger" id="{{ device.name }}-off" onclick="setState('{{ device.name }}')" data-device="{{ device.name }}">
+                        <i class="fa fa-stop-circle"></i> Power Off</a>
+                    {% else %}
+                        <a class="btn btn-primary" id="{{ device.name }}-on" href="{{ url_for('power', device = device.name) }}" data-device="{{ device.name }}">
+                        <i class="fa fa-play-circle"></i> Power On</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

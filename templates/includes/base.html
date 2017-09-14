@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}[p4c] py-pi PC Power Control{% endblock %}</title>
+    {% block head %}
+        {% include 'includes/head.html' %}
+    {% endblock %}
+</head>
+<body>
+    {% block header %}
+        {% include 'includes/header.html' %}
+    {% endblock %}
+
+    <div id="content" class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div id="status" class="container">
+        {% block status %}
+            {% include 'includes/system.html' %}
+        {% endblock %}
+    </div>
+    <footer id="footer" class="footer">
+        {% block footer %}
+            {% include 'includes/footer.html' %}
+        {% endblock %}
+    </footer>
+</body>
+</html>
