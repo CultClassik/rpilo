@@ -8,7 +8,7 @@ script:
 # build image
 - docker build -t cultclassik/rpilo .
 # test image
-- docker run cultclassik/rplio
+- docker run cultclassik/rpilo
 # push image
 
 - >
