@@ -16,14 +16,9 @@ before_install:
 
 script:
 - docker exec rpilo python3 -m unittest discover
-
-- >
-  if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-    TAG="arm32v6"
-    docker tag cultclassik/rpilo cultclassik/rpilo:$TAG
-    docker push cultclassik/rpilo:$TAG
-    docker push cultclassik/rpilo
-  fi
-
-# TAG=$(grep "ENV TAG_NAME" Dockerfile | awk 'NF>1{print $NF}')
+- docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+- DREPO="cultclassik/rpilo"
+- TAG="arm32v6"
+- docker tag $DREPO $DREPO:$TAG
+- docker push $DREPO:$TAG
+- docker push $DREPO
