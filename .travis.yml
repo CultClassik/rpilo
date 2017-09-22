@@ -11,16 +11,16 @@ before_install:
 # build image
 - docker build -t cultclassik/rpilo .
 # test image
-- docker run --name=rpilo cultclassik/rpilo
-# push image
+- docker run -d --name=rpilo cultclassik/rpilo
+- docker ps -a
 
 script:
-- docker exec rpilo python -m unittest discover
+- docker exec rpilo python3 -m unittest discover
 
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-    TAG="armhf"
+    TAG="arm32v6"
     docker tag cultclassik/rpilo cultclassik/rpilo:$TAG
     docker push cultclassik/rpilo:$TAG
     docker push cultclassik/rpilo
