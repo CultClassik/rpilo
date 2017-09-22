@@ -20,8 +20,6 @@ RUN git clone https://github.com/CultClassik/rpilo.git /rpilo
 
 EXPOSE 5000
 
-WORKDIR /rpilo
-
 CMD ["python /rpilo/rpilo.py"]
 
 # Example usage:
