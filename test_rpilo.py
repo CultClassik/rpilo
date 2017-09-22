@@ -13,7 +13,7 @@ class FlaskAppTests(unittest.TestCase):
 
     def setUp(self):
         # creates a test client
-        self.app = app.test_client()
+        self.app = app.app.test_client()
         # propagate the exceptions to the test client
         self.app.testing = True
 
