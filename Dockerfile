@@ -19,10 +19,14 @@ RUN apk update && apk add \
 
 RUN git clone https://github.com/CultClassik/rpilo.git /rpilo
 
+WORKDIR /rpilo
+
+RUN pip install -r /rpilo/requirements.txt
+
 EXPOSE 5000
 
 CMD ["python /rpilo/rpilo.py"]
 
 # Example usage:
 # docker run -d --name raspi-powerctl -p 5000:5000 --cap-add SYS_RAWIO --device /dev/mem cultclassik/raspi-powerctl
-# docker run --name raspi-powerctl -p 5000:5000 --cap-add SYS_RAWIO --device /dev/mem cultclassik/raspi-powerctl
+# docker run --name rpilo -p 5000:5000 --cap-add SYS_RAWIO --device /dev/mem cultclassik/rpilo
