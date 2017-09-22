@@ -1,11 +1,11 @@
 # Raspberry Pi
-#FROM arm32v6/python:alpine3.6
+FROM arm32v6/python:alpine3.6
 
 # Raspberry Pi 2/3
 # FROM arm32v7/python
 
 # All pi?
-FROM resin/raspberry-pi-alpine-python:3.6.1-onbuild
+#FROM resin/raspberry-pi-alpine-python:3.6.1-onbuild
 
 MAINTAINER Chris Diehl <cultclassik@gmail.com>
 

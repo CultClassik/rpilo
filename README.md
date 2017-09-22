@@ -1,4 +1,4 @@
-# Raspberry Pi PC Power Control
+# RPilo - Raspberry Pi PC Power Control [![Build Status](https://travis-ci.org/CultClassik/rpilo.svg?branch=master)](https://travis-ci.org/CultClassik/rpilo)
 
 ## Python Fork Specific
 This is a fork of https://github.com/malcolm-brooks/raspi-powerctl that aims to rebuild this app using Python and Flask rather than the original PHP.
