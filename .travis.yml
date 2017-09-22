@@ -10,7 +10,8 @@ before_install:
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
 - docker build -t cultclassik/rpilo .
-# test image
+- docker images
+# run and test image
 - docker run -d --name=rpilo cultclassik/rpilo
 - docker ps -a
 
