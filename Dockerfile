@@ -12,20 +12,21 @@ MAINTAINER Chris Diehl <cultclassik@gmail.com>
 
 ENV INITSYSTEM on
 
-RUN apk update && apk add \
-    bash fping \
-    git \
-    python-dev
+RUN apk update && apk add --no-cache \
+    bash fping git python3 python-dev &&\
+    python3 -m ensurepip &&\
+    rm -r /usr/lib/python*/ensurepip &&\
+    pip3 install --upgrade pip
 
 RUN git clone https://github.com/CultClassik/rpilo.git /rpilo
 
 WORKDIR /rpilo
 
-RUN pip install -r /rpilo/requirements.txt
+RUN pip3 install -r /rpilo/requirements.txt
 
 EXPOSE 5000
 
-CMD ["python /rpilo/rpilo.py"]
+CMD ["python3 /rpilo/rpilo.py"]
 
 # Example usage:
 # docker run -d --name raspi-powerctl -p 5000:5000 --cap-add SYS_RAWIO --device /dev/mem cultclassik/raspi-powerctl
