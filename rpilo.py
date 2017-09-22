@@ -151,5 +151,13 @@ def devices():
 
     return render_template('private/devices.html', devices=conf_data['devices'], stats=get_stats())
 
+@app.route('/test', methods=['GET'])
+def test():
+    stats = {}
+    stats['temp'] = int(10)
+    stats['cpu'] = int(20)
+    stats['mem'] = int(30)
+    return render_template('test.html', stats=stats)
+
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
