@@ -13,7 +13,7 @@ MAINTAINER Chris Diehl <cultclassik@gmail.com>
 ENV INITSYSTEM on
 
 RUN apk update && apk add --no-cache \
-    bash fping git gcc musl-dev python3 python3-dev
+    bash fping git gcc musl-dev linux-headers python3 python3-dev
 
 RUN python3 -m ensurepip &&\
     rm -r /usr/lib/python*/ensurepip &&\
