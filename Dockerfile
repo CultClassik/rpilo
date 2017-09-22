@@ -27,7 +27,7 @@ RUN pip3 install -r /rpilo/requirements.txt
 
 EXPOSE 5000
 
-CMD ["python3 /rpilo/rpilo.py"]
+CMD ["python3", "/rpilo/rpilo.py"]
 
 # Example usage:
 # docker run -d --name raspi-powerctl -p 5000:5000 --cap-add SYS_RAWIO --device /dev/mem cultclassik/raspi-powerctl
