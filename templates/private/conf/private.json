@@ -4,36 +4,36 @@
 			"name": "miner01",
 			"owner": "miner",
 			"host": "miner01.diehlabs.lan",
-			"gpio-power": false,
-			"gpio-reset": 37,
-			"gpio-status": 16,
+			"gpio_power": false,
+			"gpio_reset": 37,
+			"gpio_status": 16,
 			"sleep": false
 		},
 		"miner02": {
 			"name": "miner02",
 			"owner": "miner",
 			"host": "miner02.diehlabs.lan",
-			"gpio-power": false,
-			"gpio-reset": 35,
-			"gpio-status": 22,
+			"gpio_power": false,
+			"gpio_reset": 35,
+			"gpio_status": 22,
 			"sleep": false
 		},
 		"miner03": {
 			"name": "miner03",
 			"owner": "miner",
 			"host": "miner03.diehlabs.lan",
-			"gpio-power": false,
-			"gpio-reset": 33,
-			"gpio-status": 18,
+			"gpio_power": false,
+			"gpio_reset": 33,
+			"gpio_status": 18,
 			"sleep": false
 		},
 		"miner04": {
 			"name": "miner04",
 			"owner": "miner",
 			"host": "miner04.diehlabs.lan",
-			"gpio-power": false,
-			"gpio-reset": 31,
-			"gpio-status": 12,
+			"gpio_power": false,
+			"gpio_reset": 31,
+			"gpio_status": 12,
 			"sleep": false
 		},
 
@@ -41,9 +41,9 @@
 			"name": "miner-x",
 			"owner": "miner",
 			"host": "miner05.diehlabs.lan",
-			"gpio-power": false,
-			"gpio-reset": 29,
-			"gpio-status": 7,
+			"gpio_power": false,
+			"gpio_reset": 29,
+			"gpio_status": 7,
 			"sleep": false
 		}
 	},

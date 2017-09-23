@@ -38,18 +38,18 @@
                             <a class="btn btn-primary" id="{{ device.name }}-sleep" href="{{ url_for('power', device = device.name) }}" data-device="{{ device.name }}">
                             <i class="fa fa-pause-circle"></i> Sleep</a>
                         {% endif %}
-                        {% if device.gpio-power %}
+                        {% if device.gpio_power %}
                             <a class="btn btn-danger" id="{{ device.name }}-off" onclick="setState('{{ device.name }}')" data-device="{{ device.name }}">
                             <i class="fa fa-stop-circle"></i> Power Off</a>
                         {% endif %}
                     {% else %}
-                        {% if device.gpio-power %}
+                        {% if device.gpio_power %}
                             <a class="btn btn-primary" id="{{ device.name }}-on" href="{{ url_for('power', device = device.name) }}" data-device="{{ device.name }}">
                             <i class="fa fa-play-circle"></i> Power On</a>
                         {% endif %}
                     {% endif %}
                     {# Reset Options #}
-                    {% if device.gpio-reset %}
+                    {% if device.gpio_reset %}
                         <a class="btn btn-primary" id="{{ device.name }}-reset" href="{{ url_for('reset', device = device.name) }}" data-device="{{ device.name }}">
                         <i class="fa fa-refresh"></i> Reset</a>
                     {% endif %}
