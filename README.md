@@ -127,3 +127,7 @@ www-data ALL=(root) NOPASSWD: /usr/bin/ssh serviceuser@anonymous-desktop.local s
 www-data ALL=(root) NOPASSWD: /usr/bin/ssh serviceuser@anonymous-desktop.local service_name stop
 www-data ALL=(root) NOPASSWD: /usr/bin/ssh serviceuser@anonymous-desktop.local service_name status
 ```
+
+### Docker Usage
+Example usage:
+docker run --name rpilo -p 5000:5000 --cap-add SYS_RAWIO --device /dev/mem cultclassik/rpilo
