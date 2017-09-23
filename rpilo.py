@@ -104,7 +104,7 @@ def services():
 def power(device):
     t = int(2)
     conf_data = read_conf()
-    gpio = conf_data['devices'][device]['gpio-power']
+    gpio = conf_data['devices'][device]['gpio_power']
     gpio_ctl(gpio, t)
 
     # get the power status from the corresponding gpio input pin or refresh page - currently refreshing page from javascript
@@ -121,7 +121,7 @@ def power(device):
 def reset(device):
     t = int(2)
     conf_data = read_conf()
-    gpio = conf_data['devices'][device]['gpio-reset']
+    gpio = conf_data['devices'][device]['gpio_reset']
     gpio_ctl(gpio, t)
 
     del conf_data
@@ -144,7 +144,7 @@ def devices():
     ### update this once opto couplers are in place to read power LED
     # Read device status by checking gpio input defined for this device
     for device in conf_data['devices']:
-        gpio_pin = conf_data['devices'][device]['gpio-status']
+        gpio_pin = conf_data['devices'][device]['gpio_status']
         conf_data['devices'][device]['is_online'] = True #gpio_read(gpio_pin)
 
     return render_template('private/devices.html', devices=conf_data['devices'], stats=get_stats())
