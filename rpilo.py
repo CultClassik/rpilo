@@ -104,7 +104,7 @@ def services():
 def power(device):
     t = int(2)
     conf_data = read_conf()
-    gpio = conf_data['devices'][device]['gpio']
+    gpio = conf_data['devices'][device]['gpio-power']
     gpio_ctl(gpio, t)
 
     # get the power status from the corresponding gpio input pin or refresh page - currently refreshing page from javascript
@@ -121,7 +121,7 @@ def power(device):
 def reset(device):
     t = int(2)
     conf_data = read_conf()
-    gpio = conf_data['devices'][device]['gpio_status']
+    gpio = conf_data['devices'][device]['gpio-reset']
     gpio_ctl(gpio, t)
 
     del conf_data
