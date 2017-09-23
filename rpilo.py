@@ -153,11 +153,8 @@ def devices():
 
 @app.route('/test', methods=['GET'])
 def test():
-    stats = {}
-    stats['temp'] = int(10)
-    stats['cpu'] = int(20)
-    stats['mem'] = int(30)
-    return render_template('test.html', stats=stats)
+    # Since this is using Travis for integration we need to omit Raspberry Pi specific stuff like getting system stats because the build will fail otherwise
+    return render_template('test.html')
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
