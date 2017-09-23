@@ -48,7 +48,7 @@
                             <i class="fa fa-play-circle"></i> Power On</a>
                         {% endif %}
                     {% endif %}
-                    {% Reset Options %}
+                    {# Reset Options #}
                     {% if device.gpio-reset %}
                         <a class="btn btn-primary" id="{{ device.name }}-reset" href="{{ url_for('reset', device = device.name) }}" data-device="{{ device.name }}">
                         <i class="fa fa-refresh"></i> Reset</a>
