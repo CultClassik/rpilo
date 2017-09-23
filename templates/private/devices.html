@@ -6,7 +6,12 @@
         <div class="col-md-6">
             <div class="jumbotron cell">
                 <h2>{{ label }}</h2>
-                <a href="http://{{ device.host }}:9090" target="_blank">{{ device.host }}</a>
+                {% if device.pingable %}
+                    {# Generate link to Cockpit on managed PC #}
+                    <a href="http://{{ device.host }}:9090" target="_blank">{{ device.host }}</a>
+                {% else %}
+                    {{ device.host }}
+                {% endif %}
                 <p>{# <b>Current Status:  #}
                     <span id="{{ device.name }}-spinner" hidden><i class="fa fa-refresh fa-spin" style="font-size:24px" aria-hidden="true"></i></span>
                     {# PC ping status #}
@@ -27,15 +32,26 @@
                     </span>
                 </p>
                 <div class="btn-toolbar">
-                {#  need to add a check for device owner here as well to duplicate function of original php code  but this shoud work for me for now #}
-                    {% if device.is_online and device.gpio %}
-                        <a class="btn btn-primary" id="{{ device.name }}-sleep" href="{{ url_for('power', device = device.name) }}" data-device="{{ device.name }}">
-                        <i class="fa fa-pause-circle"></i> Sleep</a>
-                        <a class="btn btn-danger" id="{{ device.name }}-off" onclick="setState('{{ device.name }}')" data-device="{{ device.name }}">
-                        <i class="fa fa-stop-circle"></i> Power Off</a>
+                    {# Power and Sleep Options #}
+                    {% if device.is_online %}
+                        {% if device.sleep %}
+                            <a class="btn btn-primary" id="{{ device.name }}-sleep" href="{{ url_for('power', device = device.name) }}" data-device="{{ device.name }}">
+                            <i class="fa fa-pause-circle"></i> Sleep</a>
+                        {% endif %}
+                        {% if device.gpio-power %}
+                            <a class="btn btn-danger" id="{{ device.name }}-off" onclick="setState('{{ device.name }}')" data-device="{{ device.name }}">
+                            <i class="fa fa-stop-circle"></i> Power Off</a>
+                        {% endif %}
                     {% else %}
-                        <a class="btn btn-primary" id="{{ device.name }}-on" href="{{ url_for('power', device = device.name) }}" data-device="{{ device.name }}">
-                        <i class="fa fa-play-circle"></i> Power On</a>
+                        {% if device.gpio-power %}
+                            <a class="btn btn-primary" id="{{ device.name }}-on" href="{{ url_for('power', device = device.name) }}" data-device="{{ device.name }}">
+                            <i class="fa fa-play-circle"></i> Power On</a>
+                        {% endif %}
+                    {% endif %}
+                    {% Reset Options %}
+                    {% if device.gpio-reset %}
+                        <a class="btn btn-primary" id="{{ device.name }}-reset" href="{{ url_for('reset', device = device.name) }}" data-device="{{ device.name }}">
+                        <i class="fa fa-refresh"></i> Reset</a>
                     {% endif %}
                 </div>
             </div>

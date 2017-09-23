@@ -136,14 +136,12 @@ def reset(device):
 def devices():
     conf_data = read_conf()
 
-    # debug
-    #print(str(conf_data['devices']))
-
     # Read device status by pinging it
     for device in conf_data['devices']:
         is_online = check_online(conf_data['devices'][device]['host'])
         conf_data['devices'][device]['pingable'] = is_online
-### update this once opto couplers are in place to read power LED
+
+    ### update this once opto couplers are in place to read power LED
     # Read device status by checking gpio input defined for this device
     for device in conf_data['devices']:
         gpio_pin = conf_data['devices'][device]['gpio-status']
