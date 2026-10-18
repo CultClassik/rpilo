@@ -1,4 +1,4 @@
-flask==0.12.2
+flask==0.12.5
 jinja2==2.9.6
 markupsafe==1.0
 werkzeug==0.12.2
