@@ -6,7 +6,7 @@
 
 # All pi?
 #FROM resin/raspberry-pi-alpine-python:3.6.1-onbuild
-FROM hypriot/rpi-alpine
+FROM hypriot/rpi-alpine@sha256:c89a891d0b0ab57709bc6573434c7eb3b047fa444ecc2990a4d07adda0cfe0a8
 
 MAINTAINER Chris Diehl <cultclassik@gmail.com>
 
