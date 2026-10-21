@@ -1,7 +1,7 @@
 flask==0.12.2
 jinja2==2.9.6
 markupsafe==1.0
-werkzeug==0.12.2
+werkzeug==0.16.1
 click==6.7
 itsdangerous==0.24
 pip==9.0.1
